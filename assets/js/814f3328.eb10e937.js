@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknotes=self.webpackChunknotes||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/Notes/blog/welcome"},{"title":"Long Blog Post","permalink":"/Notes/blog/long-blog-post"}]}')}}]);
