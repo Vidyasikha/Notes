@@ -67,7 +67,7 @@ const config = {
             items: [
               {
                 label: 'Main Page',
-                to: '/docs/intro',
+                to: '/',
               },{
                 label: 'Blog',
                 to: '/blog',

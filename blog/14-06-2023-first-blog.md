@@ -1,6 +1,6 @@
 ---
-slug: long-blog-post
-title: Long Blog Post
+slug: welcome
+title: Welcome
 authors: VS
 tags: [hello, docusaurus]
 ---
