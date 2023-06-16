@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknotes=self.webpackChunknotes||[]).push([[423],{1148:e=>{e.exports=JSON.parse('{"permalink":"/Notes/blog","page":1,"postsPerPage":1,"totalPages":1,"totalCount":1,"blogDescription":"blog where I share information on various topics related web development","blogTitle":"VidyaSikha Blog"}')}}]);
