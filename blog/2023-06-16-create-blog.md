@@ -3,7 +3,7 @@ slug: create-blog
 title: "Blog notes"
 authors: VS
 tags: [docusaurus blog, docusaurus]
-draft: true
+# draft: true
 ---
 
 Markdown front matter for Blog post

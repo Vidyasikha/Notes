@@ -59,7 +59,6 @@ const config = {
           hideable: true,
           autoCollapseCategories: false,
         },
-        showLastUpdateTime: true,
       },
       image: "img/docusaurus-social-card.jpg",
       navbar: {
@@ -69,7 +68,10 @@ const config = {
           src: "img/logo1.svg",
         },
         hideOnScroll: true,
-        items: [{ to: "/blog", label: "Blog", position: "left" }],
+        items: [
+          { to: "/blog", label: "Blog", position: "left" },
+          { to: "/tools", label: "Tools", position: "left" },
+        ],
       },
       footer: {
         style: "dark",
