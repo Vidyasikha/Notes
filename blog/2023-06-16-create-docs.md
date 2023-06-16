@@ -1,12 +1,12 @@
 ---
-slug: create-blog
-title: "Blog notes"
+slug: create-docs
+title: "Docs notes"
 authors: VS
-tags: [docusaurus blog, docusaurus]
+tags: [docusaurus docs, docusaurus]
 draft: true
 ---
 
-Markdown front matter for Blog post
+Markdown front matter for docs post
 
 <!--truncate-->
 
@@ -19,3 +19,4 @@ Markdown front matter for Blog post
 - **Description**: The first line of the Markdown content serves as the description of the document. It is used as a meta tag for search engines and also in social media sharing.
 - **Image**: An optional cover or thumbnail image that can be associated with the blog post. This image is displayed when sharing the link to the post.
 - **Slug**: Allows customization of the URL for the blog post. It determines the path for the blog post URL, which typically follows the pattern "/routeBasePath/slug". The slug can be a simple string, a file path, or even a full URL path.
+- **sidebar_label**: The text shown in the document sidebar for this document.
