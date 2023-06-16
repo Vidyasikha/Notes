@@ -1,16 +1,4 @@
 VS:
   name: VidyaSikha
   title: Head of this project
-  image_url: img/logo1.svg
-
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+  image_url: https://vidyasikha.github.io/Notes/img/logo1.svg

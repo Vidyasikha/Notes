@@ -7,6 +7,38 @@ sidebar_position: 1
 
 Let's discover **Docusaurus in less than 5 minutes**.
 
+$$
+I = \int_0^{2\pi} \sin(x)\,dx
+$$
+
+Let $f\colon[a,b]\to\R$ be Riemann integrable. Let $F\colon[a,b]\to\R$ be
+$F(x)=\int_{a}^{x} f(t)\,dt$. Then $F$ is continuous, and at all $x$ such that
+$f$ is continuous at $x$, $F$ is differentiable at $x$ with $F'(x)=f(x)$.
+
+classDiagram
+note "From Duck till Zebra"
+Animal <|-- Duck
+note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+Animal <|-- Fish
+Animal <|-- Zebra
+Animal : +int age
+Animal : +String gender
+Animal: +isMammal()
+Animal: +mate()
+class Duck{
++String beakColor
++swim()
++quack()
+}
+class Fish{
+-int sizeInFeet
+-canEat()
+}
+class Zebra{
++bool is_wild
++run()
+}
+
 ## Getting Started
 
 Get started by **creating a new site**.
