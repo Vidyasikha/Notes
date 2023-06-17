@@ -1,0 +1,245 @@
+---
+slug: /markdown
+title: Markdown Cheat Sheet
+description: A quick reference to the Markdown syntax.
+sidebar_label: Markdown
+sidebar_position: 2
+keywords:
+  [
+    Markdown syntax,
+    Markdown headers,
+    Markdown paragraphs,
+    Markdown bold,
+    Markdown italic,
+    Markdown blockquote,
+    Markdown lists,
+    Markdown links,
+    Markdown images,
+    Markdown code,
+    Markdown tables,
+    Markdown SEO optimization,
+    Markdown syntax examples,
+    Markdown formatting,
+    Markdown guide,
+  ]
+---
+
+## Header
+
+Headers in Markdown are used to create headings or titles for sections of your content. Markdown supports six levels of headers, ranging from the largest (level 1) to the smallest (level 6). The syntax for creating headers is as follows:
+
+To create a level 1 header, use a single hash symbol (`#`) followed by a space and then the header text. For example:
+
+```
+# Header 1
+```
+
+To create a level 2 header, use two hash symbols (`##`), and so on. Here's an example for level 2:
+
+```
+## Header 2
+```
+
+You can continue this pattern up to level 6, using six hash symbols (`######`) for the smallest header:
+
+```
+###### Header 6
+```
+
+The more hash symbols you use, the smaller the header becomes. ** It's important to leave a space between the hash symbols ** and the header text to ensure proper rendering.
+
+Headers are typically displayed in a larger, bold font, making them visually distinct and easy to identify. They are useful for structuring your content and creating hierarchical sections.
+
+Here's an example of how headers are rendered:
+
+#### Header 4
+
+##### Header 5
+
+###### Header 6
+
+Headers can also be combined with other Markdown syntax to create more complex content structures, such as lists, paragraphs, and links.
+
+## Paragraph
+
+Paragraphs are created by simply typing your text. Leave an empty line between paragraphs to separate them.
+
+This is the first paragraph.
+
+This is the second paragraph.
+
+## Bold and italic
+
+1. **Bold Text**: To make text appear bold, you can use double asterisks (`**`) or double underscores (`__`) around the text you want to emphasize. For example:
+
+   - `**This is bold text**` will be rendered as **This is bold text**
+   - `__This is also bold text__` will be rendered as **This is also bold text**
+
+2. _Italic Text_: To make text appear italicized, you can use single asterisks (`*`) or single underscores (`_`) around the text. For example:
+   - `*This is italicized text*` will be rendered as _This is italicized text_
+   - `_This is also italicized text_` will be rendered as _This is also italicized text_
+
+You can combine both bold and italic formatting if needed. For instance, `**_This is bold and italicized text_**` will be rendered as **_This is bold and italicized text_**.
+
+Remember to leave a space before and after the text you want to format to ensure proper rendering.
+
+## Blockquote
+
+To create a blockquote in Markdown, you can use the greater than symbol (`>`). Here's how it works:
+
+1. Start a new line with the greater than symbol (`>`).
+2. After the greater than symbol, you can add the text or content you want to quote.
+3. You can include multiple lines of text within the blockquote by starting each line with the greater than symbol.
+
+Here's an example:
+
+```
+> This is a blockquote.
+> It can span multiple lines.
+> Each line starts with the greater than symbol.
+```
+
+When rendered in Markdown, the above example will appear as:
+
+> This is a blockquote.
+> It can span multiple lines.
+> Each line starts with the greater than symbol.
+
+Blockquotes are commonly used for various purposes, such as:
+
+- Quoting text from external sources or references.
+- Adding emphasis to important statements or insights.
+- Creating visual separation for distinct sections of the content.
+
+Remember that the appearance of blockquotes may vary depending on the Markdown renderer or theme used. Some renderers may include indentation or styling to make blockquotes stand out more prominently.
+
+## List
+
+1. **Unordered List**: An unordered list is created using a dash `-`, plus `+`, or asterisk `*` followed by a space. Each list item starts on a new line.
+
+   ```markdown
+   - Item 1
+   - Item 2
+   - Item 3
+   ```
+
+   Result:
+
+   - Item 1
+   - Item 2
+   - Item 3
+
+2. **Ordered List**: An ordered list is created by using numbers followed by a period `.` and a space. Each list item starts on a new line.
+
+   ```markdown
+   1. Item 1
+   2. Item 2
+   3. Item 3
+   ```
+
+   Result:
+
+   1. Item 1
+   2. Item 2
+   3. Item 3
+
+3. **Nested Lists**: You can create nested lists by indenting the nested items with spaces or tabs. You can nest both ordered and unordered lists.
+
+   ```markdown
+   - Item 1
+     - Subitem 1
+     - Subitem 2
+   - Item 2
+     1. Subitem A
+     2. Subitem B
+   ```
+
+   Result:
+
+   - Item 1
+     - Subitem 1
+     - Subitem 2
+   - Item 2
+     1. Subitem A
+     2. Subitem B
+
+## Link
+
+- To create a link in Markdown, use the following format: `[link text](URL 'Title')`.
+- Replace `link text` with the text you want to display for the link.
+- Replace `URL` with the actual URL you want to link to.
+- Optionally, include a `Title` within double quotes to add a tooltip when hovering over the link.
+
+Example: `[Vidyasikha Markdown Page](https://vidyasikha.github.io/Notes/markdown "to markdown page Vidyasikha")` will display a link as "Vidyasikha Markdown Page" with a tooltip of "to markdown page Vidyasikha" when hovered.
+
+[Vidyasikha Markdown Page](https://vidyasikha.github.io/Notes/markdown "to markdown page Vidyasikha")
+
+## Image
+
+- To add an image in Markdown, use the following format: `![alt text](image URL 'Title')`.
+- Replace `alt text` with a brief description of the image (used for accessibility).
+- Replace `image URL` with the actual URL or file path of the image.
+- Optionally, include a `Title` within double quotes to add a tooltip when hovering over the link.
+
+Example: `![Vidyasikha Logo](https://vidyasikha.github.io/Notes/img/logo1.svg)` will display an image with the alt text "Vidyasikha Logo" using the provided image URL.
+
+## Code
+
+To display inline code, use backticks (`). For code blocks, use triple backticks (```) at the beginning and end of the block. You can also specify the programming language for syntax highlighting.
+
+Inline code: `console.log('Hello, World!');`
+
+```javascript
+function greet() {
+  console.log("Hello, World!");
+}
+```
+
+## Table
+
+```markdown
+| Header 1  | Header 2  |  Header 3 |
+| --------- | :-------: | --------: |
+| Content 1 | Content 2 | Content 3 |
+| Content 4 | Content 5 | Content 6 |
+```
+
+In Markdown, you can create a table using pipes (`|`) to separate columns and hyphens (`-`) to define the table header. By default, the table content is aligned to the left. However, you can use colons (`:`) to specify alignment:
+
+- A colon at the left end indicates left alignment.
+- A colon at the right end indicates right alignment.
+- A colon at both ends indicates center alignment.
+
+In the example above, the table has three columns. The headers in the first row are centered (`:------:`), while the alignment of the content in the subsequent rows is defined as left, center, and right respectively (`| -------- | :------: | -------: |`).
+
+The resulting table will look like this when rendered:
+
+| Header 1  | Header 2  |  Header 3 |
+| --------- | :-------: | --------: |
+| Content 1 | Content 2 | Content 3 |
+| Content 4 | Content 5 | Content 6 |
+
+You can adjust the content and structure of the table by adding or removing rows and columns and adjusting the alignment as needed.
+
+## Summary
+
+Certainly! Here's an updated table that includes popular Markdown syntax using special characters:
+
+| Markdown Syntax | Example                    |
+| --------------- | -------------------------- |
+| Heading 1       | `# Heading 1`              |
+| Heading 2       | `## Heading 2`             |
+| Heading 3       | `### Heading 3`            |
+| Heading 4       | `#### Heading 4`           |
+| Heading 5       | `##### Heading 5`          |
+| Heading 6       | `###### Heading 6`         |
+| Paragraph       | Regular text               |
+| Italic          | `*Italic*` or `_Italic_`   |
+| Bold            | `**Bold**` or `__Bold__`   |
+| Blockquote      | `> Blockquote`             |
+| Unordered List  | `- Item 1` or `* Item 1`   |
+| Ordered List    | `1. Item 1`                |
+| Link            | `[Link Text](URL 'title')` |
+| Image           | `![Alt Text](Image URL)`   |
+| Code            | \`Inline Code\`            |
+| Code Block      | \`\`\` \`\`\`              |

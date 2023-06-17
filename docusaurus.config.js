@@ -60,6 +60,9 @@ const config = {
           autoCollapseCategories: false,
         },
       },
+      colorMode: {
+        defaultMode: "dark",
+      },
       image: "img/docusaurus-social-card.jpg",
       navbar: {
         title: "VidyaSikha",
