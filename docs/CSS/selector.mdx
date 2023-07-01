@@ -1,0 +1,556 @@
+---
+slug: css/selector
+title: Selectors
+description: A quick reference to the Markdown syntax.
+sidebar_label: Selector
+sidebar_position: 1
+---
+
+In CSS (Cascading Style Sheets), selectors are used to target specific HTML elements and apply styles to them. There are several types of selectors available in CSS. Here are some of the most commonly used ones:
+
+## Universal Selector
+
+The universal selector targets all elements in an HTML document. It is represented by an asterisk (\*). For example, to apply a margin to all elements, you can use the following CSS rule:
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+
+## Element Selector
+
+The element selector targets elements based on their tag names. It is represented by the tag name itself. For example, to target all paragraphs in a document, you can use the following CSS rule:
+
+```css
+p {
+  color: blue;
+}
+```
+
+## Class Selector
+
+The class selector targets elements with a specific class attribute. It is represented by a dot (.) followed by the class name. For example, suppose you have a class named "highlight" that you want to apply to certain elements. You can use the class selector as follows:
+
+```css
+.highlight {
+  background-color: yellow;
+}
+```
+
+In HTML, you would apply this class to an element like this:
+
+```html
+<p class="highlight">This paragraph will have a yellow background.</p>
+```
+
+## ID Selector
+
+The ID selector targets a single element with a specific ID attribute. It is represented by a hash (#) followed by the ID name. IDs should be unique within an HTML document. Here's an example:
+
+```css
+#logo {
+  width: 200px;
+  height: 100px;
+}
+```
+
+In HTML, you would apply this ID to an element like this:
+
+```html
+<img id="logo" src="logo.png" alt="Logo" />
+```
+
+## Attribute Selector
+
+The attribute selector targets elements based on their attributes. It is represented by square brackets ([]). For example, to target all input elements with a "required" attribute, you can use the following CSS rule:
+
+```css
+input[required] {
+  border: 1px solid red;
+}
+```
+
+## Descendant Selector
+
+The descendant selector targets elements that are descendants of another element. It is represented by a space ( ). For example, to target all the list items (li) that are descendants of an unordered list (ul), you can use the following CSS rule:
+
+```html
+<ul>
+  <li>List item 1</li>
+  <li>List item 2</li>
+</ul>
+```
+
+```css
+ul li {
+  color: green;
+}
+```
+
+## Child Selector
+
+The child selector targets elements that are direct children of another element. It is represented by a greater than sign (>). For example, to target all the direct child paragraphs (p) of a div, you can use the following CSS rule:
+
+```css
+div > p {
+  font-weight: bold;
+}
+```
+
+## Adjacent Sibling Selector
+
+The adjacent sibling selector targets an element that immediately follows another element and they share the same parent. It is represented by a plus sign (+). For example, to target the span element that directly follows an h2 element, you can use the following CSS rule:
+
+```css
+h2 + span {
+  color: red;
+}
+```
+
+## General Sibling Selector
+
+The general sibling selector targets elements that follow another element and they share the same parent. It is represented by a tilde (~). For example, to target all the span elements that follow a paragraph (p) element, you can use the following CSS rule:
+
+```css
+p ~ span {
+  text-decoration: underline;
+}
+```
+
+## Attribute Value Selector
+
+The attribute value selector targets elements based on the value of a specific attribute. It is represented by square brackets ([]), with an optional comparison operator such as equals (=), contains (~=), starts with (^=), ends with ($=), or includes (\*=). For example, to target all input elements with a "type" attribute of "text," you can use the following CSS rule:
+
+```css
+input[type="text"] {
+  border: 1px solid #ccc;
+}
+```
+
+## Group Selector
+
+The group selector targets multiple elements at once by separating them with commas. It allows you to apply the same styles to different elements. For example, to apply a specific font color to both headings and paragraphs, you can use the following CSS rule:
+
+```css
+h1,
+p {
+  color: #333;
+}
+```
+
+## Pseudo-Classes
+
+Pseudo-classes target elements based on a specific state or condition. They are represented by a colon (:) followed by the pseudo-class name. For example, to target a link when the mouse is hovering over it, you can use the following CSS rule:
+
+```css
+a:hover {
+  color: purple;
+}
+```
+
+There are a total of 33 Pseudo-Classes selectors in CSS. Here is a comprehensive list of all the Pseudo-Classes selectors:
+
+These are the form-related Pseudo-Classes selectors in CSS, with their explanations:
+
+### :checked
+
+Targets form elements that are checked or selected. It is commonly used with checkboxes or radio buttons. For example, you can use it to style a checked checkbox:
+
+```css
+input[type="checkbox"]:checked {
+  border-color: green;
+}
+```
+
+### :disabled
+
+Targets form elements that are disabled, such as input fields or buttons. It allows you to style disabled form elements differently. For example, you can change the opacity of a disabled button:
+
+```css
+button:disabled {
+  opacity: 0.5;
+}
+```
+
+### :enabled
+
+Targets form elements that are enabled. It is the opposite of the :disabled pseudo-class. For example, you can style enabled input fields with a green border:
+
+```css
+input:enabled {
+  border-color: green;
+}
+```
+
+### :in-range
+
+Targets form elements that have a value within a specified range. It is often used with range input types. For example, you can change the background color of a range input that falls within a specific range:
+
+```html
+<input name="amount" type="number" min="2" max="6" value="4" />
+```
+
+```css
+input[type="range"]:in-range {
+  background-color: green;
+}
+```
+
+### :out-of-range
+
+Targets form elements that have a value outside a specified range. It is the opposite of the :in-range pseudo-class. For example, you can change the background color of a range input that falls outside a specific range:
+
+```css
+input[type="range"]:out-of-range {
+  background-color: red;
+}
+```
+
+### :read-only
+
+Targets form elements that are read-only. It is often used with input fields or text areas. For example, you can change the background color of a read-only input field:
+
+```css
+input:read-only {
+  background-color: lightgray;
+}
+```
+
+### :read-write
+
+Targets form elements that are editable. It is the opposite of the :read-only pseudo-class. For example, you can change the border color of an editable input field:
+
+```css
+input:read-write {
+  border-color: green;
+}
+```
+
+These are the non-form-related Pseudo-Classes selectors in CSS, with their explanations:
+
+### :active
+
+Targets an element when it is being activated or clicked by the user. It is commonly used to provide visual feedback during user interactions. For example, you can change the background color of a button when it is being clicked:
+
+```css
+button:active {
+  background-color: red;
+}
+```
+
+### :first-child
+
+Targets an element that is the first child of its parent. It allows you to apply styles specifically to the first child element. For example, you can make the first `<li>` element in an unordered list bold:
+
+```css
+li:first-child {
+  font-weight: bold;
+}
+```
+
+### :first-of-type
+
+Targets the first occurrence of a specific element type among its siblings. It allows you to style the first element of a particular type within a container. For example, you can make the first `<p>` element in a container red:
+
+```css
+p:first-of-type {
+  color: red;
+}
+```
+
+### :hover
+
+Targets an element when the user hovers over it. It is commonly used to add visual effects on elements during mouse interactions. For example, you can change the color of a link when the user hovers over it:
+
+```css
+a:hover {
+  color: purple;
+}
+```
+
+### :last-child
+
+Targets an element that is the last child of its parent. It allows you to style the last child element specifically. For example, you can make the last `<div>` element in a container have a background color:
+
+```css
+div:last-child {
+  background-color: yellow;
+}
+```
+
+### :last-of-type
+
+Targets the last occurrence of a specific element type among its siblings. It allows you to style the last element of a particular type within a container. For example, you can make the last `<h2>` element in a container have an underline:
+
+```css
+h2:last-of-type {
+  text-decoration: underline;
+}
+```
+
+### :not()
+
+Targets elements that do not match the specified selector. It allows you to exclude elements from being selected. For example, you can apply styles to all paragraphs except those with a class of "highlight":
+
+```css
+p:not(.highlight) {
+  color: blue;
+}
+```
+
+### :nth-child()
+
+Targets elements based on their position among their siblings. It allows you to apply styles to specific occurrences of an element. For example, you can select and style every second list item:
+
+```css
+li:nth-child(2n) {
+  background-color: lightgray;
+}
+```
+
+### :nth-of-type()
+
+Targets elements based on their position among elements of the same type. It allows you to style specific occurrences of a particular element type. For example, you can style every odd paragraph with a background color:
+
+```css
+p:nth-of-type(odd) {
+  background-color: lightblue;
+}
+```
+
+### :only-child
+
+Targets an element that is the only child of its parent. It allows you to apply styles to elements that are the sole children within their container. For example, you can add a border to a `<div>` that is the only child within its parent:
+
+```css
+div:only-child {
+  border: 1px solid red;
+}
+```
+
+### :only-of-type
+
+Targets an element that is the only occurrence of its type among its siblings. It allows you to select elements that are the sole occurrences of their type within a container. For example, you can make the only `<h1>` in a container have a blue color:
+
+```css
+h1:only-of-type {
+  color: blue;
+}
+```
+
+### :target
+
+Targets an element that is the target of the current URL anchor link. It is commonly used for creating scroll-to sections within a page. For example, you can change the background color of a section when it is the target of an anchor link:
+
+```css
+section:target {
+  background-color: yellow;
+}
+```
+
+### :focus
+
+Targets an element that has keyboard focus. It is commonly used to style interactive elements when they are in focus. For example, you can add an outline to an input field when it is focused:
+
+```css
+input:focus {
+  outline: 2px solid blue;
+}
+```
+
+### :visited
+
+Targets visited links. It is used to style links that have been previously visited. However, due to privacy concerns, certain styles can be limited when applied to visited links. For example, you can change the color of visited links:
+
+```css
+a:visited {
+  color: purple;
+}
+```
+
+### :link
+
+Targets unvisited links. It is the opposite of the :visited pseudo-class. For example, you can change the color of unvisited links:
+
+```css
+a:link {
+  color: blue;
+}
+```
+
+### :nth-last-child()
+
+Targets elements based on their position among their siblings, counting from the end. It allows you to select and style specific occurrences of an element, starting from the last child. For example, you can style the second-to-last list item:
+
+```css
+li:nth-last-child(2) {
+  color: red;
+}
+```
+
+### :nth-last-of-type()
+
+Targets elements based on their position among elements of the same type, counting from the end. It allows you to select and style specific occurrences of a particular element type, starting from the last element. For example, you can style the second-to-last paragraph:
+
+```css
+p:nth-last-of-type(2) {
+  font-size: 20px;
+}
+```
+
+### :checked
+
+Targets form elements that are checked or selected. It is commonly used with checkboxes or radio buttons. For example, you can use it to style a checked checkbox:
+
+```css
+input[type="checkbox"]:checked {
+  border-color: green;
+}
+```
+
+### :disabled
+
+Targets form elements that are disabled, such as input fields or buttons. It allows you to style disabled form elements differently. For example, you can change the opacity of a disabled button:
+
+```css
+button:disabled {
+  opacity: 0.5;
+}
+```
+
+### :enabled
+
+Targets form elements that are enabled. It is the opposite of the :disabled pseudo-class. For example, you can style enabled input fields with a green border:
+
+```css
+input:enabled {
+  border-color: green;
+}
+```
+
+### :checked
+
+Targets form elements that are checked or selected. It is commonly used with checkboxes or radio buttons. For example, you can use it to style a checked checkbox:
+
+```css
+input[type="checkbox"]:checked {
+  border-color: green;
+}
+```
+
+### :indeterminate
+
+Targets form elements that are in an indeterminate state. It is often used with checkboxes or radio buttons that have an indeterminate value. For example, you can style an indeterminate checkbox:
+
+```css
+input[type="checkbox"]:indeterminate {
+  background-color: yellow;
+}
+```
+
+### :root
+
+Targets the root element of the document, which is usually the `<html>` element. It allows you to apply styles to the entire document. For example, you can set a global font size using :root:
+
+```css
+:root {
+  font-size: 16px;
+}
+```
+
+### :empty
+
+Matches elements that have no children or contain only whitespace. It is useful for selecting and styling elements that have no content. For example, you can hide empty `<span>` elements:
+
+```css
+span:empty {
+  display: none;
+}
+```
+
+## Pseudo-Elements
+
+Pseudo-elements target a specific part of an element, allowing you to style it independently. They are represented by a double colon (::) followed by the pseudo-element name. For example, to target the first line of a paragraph, you can use the following CSS rule:
+
+### ::after
+
+This pseudo-element is used to insert content after the content of an element. It is often used to add decorative elements or additional content dynamically. For example, you can use it to add an arrow icon after a link:
+
+```css
+a::after {
+  content: "→";
+}
+```
+
+### ::before
+
+This pseudo-element is similar to ::after but inserts content before the content of an element. It is commonly used for adding decorative elements or textual labels. For example, you can use it to add a "Warning" label before a paragraph:
+
+```css
+p::before {
+  content: "Warning: ";
+}
+```
+
+### ::first-letter
+
+This pseudo-element targets the first letter of the content within an element. It is often used to apply special styles to the initial letter. For example, you can make the first letter of a paragraph larger and bold:
+
+```css
+p::first-letter {
+  font-size: 24px;
+  font-weight: bold;
+}
+```
+
+### ::first-line
+
+This pseudo-element targets the first line of text within an element. It allows you to style the first line separately from the rest of the content. For example, you can make the first line of a paragraph have a different color:
+
+```css
+p::first-line {
+  color: blue;
+}
+```
+
+### ::selection
+
+This pseudo-element targets the portion of text that is selected by the user. It allows you to style the selected text. For example, you can change the background color of selected text:
+
+```css
+::selection {
+  background-color: yellow;
+}
+```
+
+### ::placeholder
+
+This pseudo-element targets the placeholder text within input fields or text areas. It allows you to style the placeholder text differently from the regular text. For example, you can change the color of the placeholder text:
+
+```css
+::placeholder {
+  color: gray;
+}
+```
+
+### ::marker
+
+This pseudo-element targets the marker or bullet point of a list item. It allows you to style the marker independently. For example, you can change the color of the list item markers:
+
+```css
+li::marker {
+  color: red;
+}
+```
+
+### ::backdrop
+
+This pseudo-element is used for styling the backdrop behind an element that has been opened in fullscreen or modal view. It is primarily used in conjunction with the `dialog` element. For example, you can add a semi-transparent overlay behind a dialog:
+
+```css
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```

@@ -1,0 +1,195 @@
+---
+slug: multiselectdropdown
+title: Multiselect Dropdown
+description: Multiselect Dropdown
+sidebar_label: MultiselectDropdown
+---
+
+Along with simple multiselect dropdown, we will add additional elements of a reset button, cancel button, and apply button to make it more user-friendly.
+
+## Functionality
+
+1. **Selection of multiple options**: Users should be able to select multiple options from the dropdown.
+2. **Display of selected options**: Show the selected options within the dropdown or in a separate container.
+<!-- 3. **Search/filter options**: Provide a search or filter functionality to make it easier for users to find specific options within the dropdown. -->
+3. **Keyboard navigation**: Ensure that users can navigate through the options using keyboard keys such as arrow keys, Enter, and Tab.
+4. **Callbacks/events**: Implement callbacks or events to handle the selected options and perform actions based on the user's selection.
+5. **Reset Button**:
+
+   - Consider adding a "Reset" button to allow users to clear their selections and revert to the initial state.
+   - Place the "Reset" button after the dropdown options and before the cancel and apply buttons.
+   - Use clear labeling or use appropriate icons.
+
+6. **Cancel and Apply Buttons**:
+
+   - Include "Cancel" and "Apply" buttons at the bottom of the dropdown to allow users to confirm or cancel their selections.
+   - Position the "Cancel" button to the left of the "Apply" button for consistency with standard dialog box conventions.
+   - Clearly label the buttons with "Cancel" and "Apply" text or use appropriate icons.
+   - Implement event handlers for the buttons to perform the desired actions, such as closing the dropdown without saving changes (Cancel) or applying the selected options and closing the dropdown (Apply).
+
+## Accessibility
+
+1. **Keyboard accessibility**: Make sure the dropdown can be accessed and used using keyboard navigation alone, without relying solely on mouse interaction.
+
+   1. **Tab Key (Closed State)**:
+
+      - When the dropdown is closed, pressing the Tab key should move the focus to the dropdown button.
+      - The button should receive a focus indicator (e.g., a visible outline) to indicate that it has focus.
+
+   2. **Space or Enter Key (Closed State)**:
+
+      - When the dropdown button has focus, pressing the Space or Enter key should open the dropdown.
+      - The dropdown content should become visible, and the focus should move to the first checkbox in the list (if there are checkboxes).
+
+   3. **Arrow Down Key (Closed State)**:
+
+      - When the dropdown button has focus, pressing the Arrow Down key should open the dropdown (same as Space/Enter key).
+
+   4. **Tab Key (Open State)**:
+
+      - When the dropdown is open, pressing the Tab key should move the focus to the next focusable element within the dropdown content.
+      - The focus should cycle through the checkboxes and buttons (Reset, Cancel, Apply) in the dropdown.
+      - If the last focusable element is reached, pressing Tab should close the dropdown and move the focus back to the dropdown button.
+
+   5. **Shift + Tab Keys (Open State)**:
+
+      - When the dropdown is open, pressing Shift + Tab should move the focus to the previous focusable element within the dropdown content.
+      - If the first focusable element is reached, pressing Shift + Tab should close the dropdown and move the focus back to the dropdown button.
+
+   6. **Arrow Up and Arrow Down Keys (Open State)**:
+
+      - When the dropdown is open, pressing the Arrow Up key should move the focus to the previous checkbox (if any) in the list.
+      - Pressing the Arrow Down key should move the focus to the next checkbox (if any) in the list.
+      - When focus moves between checkboxes, their visual state should indicate the focused checkbox.
+
+   7. **Space or Enter Key (Open State, Checkbox Focused)**:
+
+      - When a checkbox within the dropdown has focus, pressing the Space or Enter key should toggle the checkbox's state (checked/unchecked).
+
+   8. **Space or Enter Key (Open State, Button Focused)**:
+
+      - When a button (Reset, Cancel, Apply) within the dropdown has focus, pressing the Space or Enter key should activate the button's action.
+
+   9. **Escape Key (Open State)**:
+      - When the dropdown is open, pressing the Escape key should close the dropdown and move the focus back to the dropdown button.
+
+   Additionally, it's important to provide visual feedback when a checkbox is checked, buttons are focused or pressed, and the dropdown is opened or closed.
+
+   Note: The actual implementation of the keyboard navigation may require event listeners and JavaScript logic to handle the focus movement and dropdown state changes. Make sure to test the keyboard navigation thoroughly to ensure it works as expected and meets accessibility guidelines.
+
+   Regarding the responses, when a checkbox is checked, the dropdown should not close automatically. When the "Apply" button is pressed, the dropdown should close, and the selected checkboxes' values should be submitted or applied according to your application's requirements. The "Reset" button should reset the checkboxes to their default state, and the "Cancel" button should close the dropdown without saving any changes.
+
+2. **ARIA attributes**: Use appropriate ARIA (Accessible Rich Internet Applications) attributes to improve accessibility for screen readers and assistive technologies.
+
+   1. **`aria-haspopup="true"`**:
+
+      - Meaning: Indicates that the element has a popup or dialog that is controlled by user interaction (e.g., clicking a button to open a dropdown).
+      - When to use: Apply this attribute to the button that triggers the opening of the dropdown to inform screen readers that activating the button will show additional content.
+
+   2. **`aria-expanded="true"` or `aria-expanded="false"`**:
+
+      - Meaning: Informs screen readers whether the dropdown content is currently expanded or collapsed.
+      - When to use: Change the value to `true` when the dropdown is open, and `false` when it is closed. Update this attribute when the dropdown's visibility changes.
+
+   3. **`aria-labelledby`**:
+
+      - Meaning: Associates the dropdown content with its corresponding button by referencing the button's ID. Screen readers will read the content as being labeled by the button.
+      - When to use: Add this attribute to the container element that wraps the dropdown content to establish the relationship with the dropdown button.
+
+   4. **`aria-label`**:
+
+      - Meaning: Provides a text label to identify the purpose of an element for users of assistive technologies. It replaces the visual label for elements like buttons and links.
+      - When to use: Apply this attribute to buttons inside the dropdown (e.g., Reset, Cancel, Apply) to provide a concise label for their respective actions.
+
+   5. **`aria-disabled="true"`**:
+
+      - Meaning: Indicates that an element is disabled and cannot be interacted with.
+      - When to use: Apply this attribute to the "Apply" button when there are no checkboxes selected or when a required condition for applying changes is not met.
+
+   6. **`aria-checked="true"` or `aria-checked="false"`**:
+      - Meaning: Informs screen readers whether a checkbox is checked or unchecked.
+      - When to use: Apply this attribute to each checkbox element inside the dropdown to indicate their checked state.
+
+   Instead of using ARIA roles, you can also use semantic HTML elements to improve accessibility. In this dropdown design, you can use:
+
+   - `<button>`: Use for the main dropdown button as it is a clickable element that triggers an action.
+   - `<ul>` and `<li>`: Use to represent the list of checkboxes for semantic list markup.
+   - `<input type="checkbox">` and `<label>`: Use for the checkboxes and their corresponding labels.
+
+   Using semantic elements helps improve accessibility by providing built-in roles and behavior, making it easier for assistive technologies and screen readers to interpret the content correctly.
+
+   Remember that providing clear and descriptive labels for buttons and checkboxes, along with proper ARIA attributes, helps ensure that users with disabilities can effectively interact with and understand the dropdown component.
+
+3. **Focus management**: Manage focus properly, ensuring that users can easily navigate in and out of the dropdown using keyboard controls.
+
+   - Ensure that focus is properly managed when navigating through the checkboxes and buttons.
+   - When the dropdown is opened, set the focus on the first option by default.
+   - Allow users to navigate through the options using arrow keys .
+   - Maintain proper focus management to allow users to navigate between checkboxes using arrow keys and Tab key navigation for buttons.
+   - Consider returning focus to the select input or the trigger element when the dropdown is closed.
+   - Here's an example of focus management:
+     - When the dropdown is opened, set focus on the first option using JavaScript's `focus()` method.
+     - When the dropdown is closed, return focus to the select input using the `focus()` method.
+
+4. **Accessible markup**: Use semantic HTML elements and proper labeling for accessibility.
+
+   Below is an example
+
+   ```html
+   <!-- Closed state -->
+   <div>
+     <button id="dropdown-button" aria-haspopup="true" aria-expanded="false">
+       Button
+     </button>
+   </div>
+
+   <!-- Open state -->
+   <div>
+     <button id="dropdown-button" aria-haspopup="true" aria-expanded="true">
+       Button
+     </button>
+     <div aria-labelledby="dropdown-button">
+       <ul>
+         <li>
+           <input type="checkbox" id="checkbox1" />
+           <label for="checkbox1">Checkbox 1</label>
+         </li>
+         <li>
+           <input type="checkbox" id="checkbox2" />
+           <label for="checkbox2">Checkbox 2</label>
+         </li>
+         <li>
+           <input type="checkbox" id="checkbox3" />
+           <label for="checkbox3">Checkbox 3</label>
+         </li>
+       </ul>
+       <button id="reset-button" aria-label="Reset">Reset</button>
+       <button id="cancel-button" aria-label="Cancel">Cancel</button>
+       <button id="apply-button" aria-label="Apply" aria-disabled="true">
+         Apply
+       </button>
+     </div>
+   </div>
+   ```
+
+## Design ideas
+
+1. **Dropdown appearance**: Design the dropdown to visually distinguish it from regular select dropdowns, for example, by using a tag-like appearance.
+2. **Selected options display**: Consider displaying selected options as tags or chips, making them visually distinct from the dropdown itself.
+3. **Search input**: Provide a search input box within the dropdown to help users find specific options quickly.
+4. **Dropdown size**: Consider the size of the dropdown, making sure it is large enough to accommodate multiple selected options without overcrowding the interface.
+5. **Dropdown positioning**: Decide whether the dropdown should appear below the select input or as an overlay that opens on top of the content.
+6. **Visual Cues and Feedback**:
+
+   - Use visual cues such as color, hover effects, or icons to differentiate the buttons and draw attention to their functionality.
+   - Provide visual feedback when buttons are hovered over or clicked to enhance interactivity.
+   - Consider using disabled or grayed-out states for the "Apply" button if no checkboxes are selected, to indicate that it is not yet actionable.
+   - Include appropriate success or confirmation messages when the user applies their selections or cancels the action.
+
+## Implementation
+
+1. **Component structure**: Break down the component into logical subcomponents, such as Dropdown, Option, and SelectedOptions.
+2. **State management**: Maintain state to keep track of the selected options and any other necessary data.
+3. **Event handling**: Implement event handlers to respond to user interactions, such as selecting options, clearing the selection, or updating the search filter.
+4. **Props**: Define appropriate props to pass data and callbacks between parent and child components.
+5. **Styling**: Apply CSS or a styling library to ensure the dropdown matches your design ideas and is visually appealing.

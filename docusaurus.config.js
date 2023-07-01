@@ -19,6 +19,7 @@ const config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  themes: ["@docusaurus/theme-live-codeblock"],
 
   i18n: {
     defaultLocale: "en",

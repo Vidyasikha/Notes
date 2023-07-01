@@ -1,0 +1,76 @@
+---
+slug: /reactjs/useEffect
+title: React useEffect
+description: Understand and utilize the useEffect hook in React to efficiently manage side effects in functional components. Learn how to control the execution of effects and handle clean-up operations, enabling you to fetch data, update component state, and interact with the DOM effectively.
+sidebar_label: useEffect
+sidebar_position: 2
+keywords:
+  [
+    useEffect hook,
+    React,
+    functional component,
+    side effects,
+    componentDidMount,
+    componentDidUpdate,
+    componentWillUnmount,
+    dependency array,
+    clean-up function,
+    fetch data,
+    API,
+    local component state,
+    DOM,
+  ]
+---
+
+The `useEffect` hook is a fundamental part of React's functional component API that allows developers to perform side effects in a declarative manner. Side effects refer to actions or operations that go beyond the scope of the component rendering, such as fetching data from an API, subscribing to events, or updating the document title.
+
+When using the `useEffect` hook, you provide a callback function as its first argument. React will execute this callback function after the component has rendered and the DOM (Document Object Model) has been updated. The callback function inside `useEffect` can be seen as a combination of the `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` lifecycle methods in class-based components.
+
+The `useEffect` hook can also take an optional second argument, which is an array of dependencies. Dependencies determine when the effect should be executed. If the dependency array is empty, the effect will only run once, after the initial rendering. If the dependency array contains values, the effect will be triggered whenever any of the values in the array change. This allows you to control when the effect should be re-run.
+
+Within the callback function, you can perform various operations. For example, you can subscribe to events using `addEventListener`, fetch data using `fetch` or `axios`, update the local component state using `setState`, or modify the DOM directly. It's important to note that the `useEffect` callback function cannot be declared as `async`, but you can define an `async` function inside and call it if needed.
+
+Additionally, the `useEffect` hook has a special feature to handle clean-up operations. If the callback function returns a function, React will invoke that function when the component is unmounted or before the effect runs again due to changes in dependencies. This clean-up function is useful for tasks like removing event listeners or canceling ongoing requests to prevent memory leaks and unnecessary computations.
+
+Here's an example to illustrate the usage of `useEffect`:
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function MyComponent() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // This effect will run after the component has rendered
+
+    // Fetch data from an API
+    fetch("https://api.example.com/data")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+
+    // Clean-up function to unsubscribe or cancel requests
+    return () => {
+      // Perform clean-up tasks here, if necessary
+    };
+  }, []); // Empty dependency array means the effect runs only once
+
+  // Render the component
+  return (
+    <div>
+      {data ? (
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading data...</p>
+      )}
+    </div>
+  );
+}
+```
+
+In this example, the effect is triggered only once when the component is mounted, thanks to the empty dependency array `[]`. It fetches data from an API using `fetch` and updates the component's state using `setData`. The clean-up function, defined within the effect, can be used to handle any necessary clean-up tasks.
+
+Overall, the `useEffect` hook provides a powerful way to handle side effects in React functional components, allowing you to separate concerns and write more maintainable and concise code.

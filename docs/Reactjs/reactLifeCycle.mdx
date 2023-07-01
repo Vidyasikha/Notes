@@ -1,0 +1,342 @@
+---
+slug: /reactjs/lifeCycle
+title: React life cycle event
+description: Learn about the React component lifecycle and its equivalents in class components and functional components. Understand the different methods such as constructor, render, componentDidMount, componentDidUpdate, componentWillUnmount, and how to handle state and side effects. This comprehensive guide provides a clear explanation and examples to help you understand the React lifecycle and optimize your component updates.
+sidebar_label: Life cycle event
+sidebar_position: 3
+keywords:
+  [
+    React component lifecycle,
+    class component,
+    functional component,
+    constructor,
+    getDerivedStateFromProps,
+    render,
+    componentDidMount,
+    useState,
+    useEffect,
+    shouldComponentUpdate,
+    componentDidUpdate,
+    componentWillUnmount,
+    React.memo,
+    error handling,
+    unmounting,
+  ]
+---
+
+## Component Mounting
+
+### Class Component
+
+- `constructor(props)`: This is a special method that initializes the component's state and binds event handlers. It is called when the component is created.
+
+- `static getDerivedStateFromProps(props, state)`: This is a static method that allows you to update the state based on changes in props. It returns an object that represents the updated state or null if no update is needed.
+
+- `render()`: This method is responsible for rendering the component's UI based on the current state and props. It returns a React element that represents the component's output.
+
+- `componentDidMount()`: This method in React is called only once, immediately after the component is mounted (i.e., inserted into the DOM). It is a commonly used method for performing initialization tasks, fetching data from an API, setting up subscriptions, or performing any other actions that need to happen after the component has been rendered for the first time.
+
+### Functional Equivalent
+
+- `useState()`: This hook allows you to declare state variables and their initial values. It returns an array with two elements: the current state value and a function to update the state.
+
+- `useEffect(() => {}, [])`: This hook is used to handle side effects in functional components. When used with an empty dependency array, it behaves similar to `componentDidMount()`, running the effect only once after the initial render.
+
+Example:
+
+```jsx
+// Class Component
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props); // Call the parent class constructor
+
+    // Initialize the component's state
+    this.state = {
+      count: 0,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.initialCount !== state.count) {
+      // Update state based on props
+      return {
+        count: props.initialCount
+      };
+    }
+
+    // Return null if no state update is needed
+    return null;
+  }
+
+  componentDidMount() {
+    // Perform tasks after rendering
+  }
+
+  render() {
+    // Render UI based on state and props
+  }
+}
+
+// Functional Component
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Perform tasks after initial render
+  }, []);
+
+
+  // Render UI based on state and props
+  return ()
+}
+```
+
+## Component Updating
+
+### Class Component
+
+- `static getDerivedStateFromProps(props, state)`: This static method is used to update the component's state based on changes in props. It returns an object representing the updated state or null if no update is needed.
+
+- `shouldComponentUpdate(nextProps, nextState)`: This method is called before rendering when new props or state are received. It allows you to control whether the component should re-render or not by returning true or false.
+
+- `render()`: This method is responsible for rendering the component's UI based on the updated state and props.
+
+- `componentDidUpdate(prevProps, prevState)`: This method is invoked after the component has been re-rendered. It is commonly used for performing side effects based on the updated state or props.
+
+### Functional Equivalent
+
+- `useEffect(() => {})`: This hook is used to handle side effects after every render. It is similar to `componentDidUpdate()` but runs after every render, not just the first one.
+
+- `React.memo(Component)`: This higher-order component is used to prevent unnecessary re-renders of a functional component. It compares the previous and current props and returns the cached result if the props haven't changed.
+
+Example:
+
+```jsx
+// Class Component
+
+class MyComponent extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    // Update state based on new props
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // Determine if re-render is needed
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Perform tasks after update
+  }
+
+  render() {
+    // Render UI based on updated state and props
+  }
+}
+
+// Functional Component
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Perform tasks after every render
+  });
+
+  const handleClick = () => {
+    // Update state
+  };
+
+  // Render UI based on state and props
+}
+
+// Memoized Functional Component
+const MemoizedComponent = React.memo(MyComponent);
+```
+
+## Component Unmounting
+
+### Class Component
+
+- `componentWillUnmount()`: This method is called just before the component is removed from the DOM. It is used to clean up resources or cancel ongoing processes.
+
+### Functional Equivalent
+
+- `useEffect(() => { return () => {} })`: This form of `useEffect()` is used to clean up resources before unmounting. The returned function is called when the component is about to be unmounted.
+
+Example:
+
+```jsx
+// Class Component
+class MyComponent extends React.Component {
+  componentWillUnmount() {
+    // Clean up resources before unmounting
+  }
+}
+
+// Functional Component
+function MyComponent() {
+  useEffect(() => {
+    return () => {
+      // Clean up resources before unmounting
+    };
+  }, []);
+}
+```
+
+## Error Handling
+
+### Class Component
+
+- `componentDidCatch(error, info)`: This method is used to catch errors that occur within the component's child tree. It allows you to handle the error gracefully by displaying an error message or a fallback UI.
+
+### Functional Equivalent
+
+- Handling errors in functional components can be done using `try-catch` blocks or by creating a custom error boundary component using higher-order components.
+
+Example:
+
+```jsx
+// Class Component
+class ErrorBoundary extends React.Component {
+  componentDidCatch(error, info) {
+    // Handle errors and display fallback UI
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
+
+// Functional Component with try-catch
+function MyComponent() {
+  try {
+    // Component logic that may throw an error
+  } catch (error) {
+    // Handle the error and display fallback UI
+  }
+}
+
+// Functional Component wrapped in ErrorBoundary
+function MyComponent() {
+  // Component logic
+
+  return <ErrorBoundary>{/* Your component tree */}</ErrorBoundary>;
+}
+```
+
+Combined All to gether in one example
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+// Class Component
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    // Update state based on new props
+    console.log("getDerivedStateFromProps - props:", props);
+    console.log("getDerivedStateFromProps - state:", state);
+
+    return null;
+  }
+
+  componentDidMount() {
+    // Perform tasks after rendering
+    console.log("Component mounted");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // Determine if re-render is needed
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Perform tasks after update
+    console.log("Component updated");
+  }
+
+  componentWillUnmount() {
+    // Clean up resources before unmounting
+    console.log("Component unmounted");
+  }
+
+  handleClick() {
+    // Update state
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
+  }
+
+  render() {
+    // Render UI based on state and props
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleClick}>Increment</button>
+      </div>
+    );
+  }
+}
+
+// Functional Component
+function MyFunctionalComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Perform tasks after initial render
+    console.log("Functional component mounted");
+
+    return () => {
+      // Clean up resources before unmounting
+      console.log("Functional component unmounted");
+    };
+  }, []);
+
+  useEffect(() => {
+    // Perform tasks after every render
+    console.log("Functional component updated");
+  });
+
+  const handleClick = () => {
+    // Update state
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  // Render UI based on state and props
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+}
+
+// Memoized Functional Component
+const MemoizedFunctionalComponent = React.memo(MyFunctionalComponent);
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Class Component:</h1>
+      <MyComponent prop1="Hello" prop2={42} />
+
+      <h1>Functional Component:</h1>
+      <MyFunctionalComponent />
+
+      <h1>Memoized Functional Component:</h1>
+      <MemoizedFunctionalComponent />
+    </div>
+  );
+}
+
+export default App;
+```
+
+Feel free to run this code in a React project and check the console logs to understand.
